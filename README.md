@@ -1,0 +1,174 @@
+# Instalacion
+
+1. Clonar repositorio
+
+```bash
+git clone https://github.com/b-munar/sportmen.git
+```
+
+2. Copiar el .env.template y pegarlo en un .env
+
+3. 
+
+```bash
+docker compose build
+docker compose up
+```
+
+
+El servicio de sportmen en si ofrece un CRUD de los datos de los deportistas, este depende totalmente del microservicio auth, se recomienda instalarlo primero, https://github.com/b-munar/auth.
+
+## 1. Creación de usuarios
+
+Crea un deportista con los datos brindados, el id del usuario debe ser único. Este id debe estar registrado en el servicio auth.
+
+<table>
+<tr>
+<td> Método </td>
+<td> POST </td>
+</tr>
+<tr>
+<td> Ruta </td>
+<td> <strong>localhost:6250/sportmen</strong> </td>
+</tr>
+<tr>
+<td> Parámetros </td>
+<td> N/A </td>
+</tr>
+<tr>
+<td> Encabezados </td>
+<td>N/A</td>
+</tr>
+<tr>
+<td> Cuerpo </td>
+<td>
+
+```json
+{
+  "user": "29a3ad78-6d3c-46e3-9c42-857ca3ec5220",
+  "name": "Brahian",
+  "last_name": "Munar",
+  "age": 26,
+  "weight": 63,
+  "height": 163,
+  "country_birth": "Colombia",
+  "city_birth": "Cali",
+  "country_residence": "Colombia",
+  "city_residence": "Elvira",
+  "length_residence": 26,
+  "sports": [{"sport":"basketball"}]
+  }
+```
+</td>
+</tr>
+</table>
+
+### Respuestas
+
+<table>
+<tr>
+<th> Código </th>
+<th> Descripción </th>
+<th> Cuerpo </th>
+</tr>
+<tbody>
+<td> 201 </td>
+<td>En el caso que el deportista se haya creado con éxito.</td>
+<td>
+
+```json
+{
+  "sportmen": {
+    "name": "Brahian",
+    "last_name": "Munar",
+    "age": 26,
+    "weight": 63,
+    "height": 163,
+    "country_birth": "Colombia",
+    "city_birth": "Cali",
+    "country_residence": "Colombia",
+    "city_residence": "Elvira",
+    "length_residence": 26,
+    "created_at": "2024-03-31T23:02:00.472427091Z",
+    "updated_at": "2024-03-31T23:02:00.472427091Z",
+    "sports": [
+      {
+        "sport": "basketball"
+      }
+    ]
+  }
+}
+```
+</td>
+</tr>
+</tbody>
+</table>
+
+
+## 2. Obtener deportista
+
+Obtener Deportista
+<table>
+<tr>
+<td> Método </td>
+<td> GET </td>
+</tr>
+<tr>
+<td> Ruta </td>
+<td> <strong>localhost:6250/sportmen</strong> </td>
+</tr>
+<tr>
+<td> Parámetros </td>
+<td> N/A </td>
+</tr>
+<tr>
+<td> Encabezados </td>
+<td>
+ "Authorization": "Bearer eyJ0eXAiOiJKV1QiL..."
+</td>
+</tr>
+<tr>
+<td> Cuerpo </td>
+<td>
+N/A
+</td>
+</tr>
+</table>
+
+### Respuestas
+
+<table>
+<tr>
+<th> Código </th>
+<th> Descripción </th>
+<th> Cuerpo </th>
+</tr>
+<tbody>
+<td> 200 </td>
+<td>En el caso de exito.</td>
+<td>
+
+```json
+{
+  "sportmen": {
+    "name": "Brahian",
+    "last_name": "Munar",
+    "age": 26,
+    "weight": 63,
+    "height": 163,
+    "country_birth": "Colombia",
+    "city_birth": "Cali",
+    "country_residence": "Colombia",
+    "city_residence": "Elvira",
+    "length_residence": 26,
+    "created_at": "2024-03-31T23:02:00.472427Z",
+    "updated_at": "2024-03-31T23:02:00.472427Z",
+    "sports": [
+      {
+        "sport": "basketball"
+      }
+    ]
+  }
+}
+```
+</td>
