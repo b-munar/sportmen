@@ -1,0 +1,103 @@
+{
+    "info": {
+        "_postman_id": "142fcd72-49f6-4284-a47c-1187a1547ab7",
+        "name": "fiber-sportman",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "description": ""
+    },
+    "item": [
+        {
+            "name": "create sportmen",
+            "request": {
+                "method": "POST",
+                "url": {
+                    "raw": "localhost:6250/sportmen",
+                    "path": [
+                        "sportmen"
+                    ],
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "6250"
+                },
+                "body": {
+                    "mode": "raw",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    },
+                    "raw": "{\n  \"user\": \"29a3ad78-6d3c-46e3-9c42-857ca3ec5220\",\n  \"name\": \"Brahian\",\n  \"last_name\": \"Munar\",\n  \"age\": 26,\n  \"weight\": 63,\n  \"height\": 163,\n  \"country_birth\": \"Colombia\",\n  \"city_birth\": \"Cali\",\n  \"country_residence\": \"Colombia\",\n  \"city_residence\": \"Elvira\",\n  \"length_residence\": 26,\n  \"sports\": [{\"sport\":\"basketball\"}]\n  }"
+                }
+            }
+        },
+        {
+            "name": "ping",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "localhost:6250/sport/ping",
+                    "path": [
+                        "sport",
+                        "ping"
+                    ],
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "6250"
+                }
+            }
+        },
+        {
+            "name": "get sportment",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "localhost:6250/sportmen",
+                    "path": [
+                        "sportmen"
+                    ],
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "6250"
+                },
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [
+                        {
+                            "key": "token",
+                            "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyOWEzYWQ3OC02ZDNjLTQ2ZTMtOWM0Mi04NTdjYTNlYzUyMjAiLCJpYXQiOjE3MTE5MjE4OTcsImV4cCI6MTcxMTkzMjY5N30.so1VIc5TVpnDiFm7sk6o87z4KZLZIeP2tdjwenw9L1c",
+                            "type": "string"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "name": "delete sportmen",
+            "request": {
+                "method": "DELETE",
+                "url": {
+                    "raw": "localhost:6250/sport",
+                    "path": [
+                        "sport"
+                    ],
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "6250"
+                },
+                "body": {
+                    "mode": "raw",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    },
+                    "raw": "{\n  \"user\": \"bd037ece-76e4-4788-8156-1bb703ce8eb0\"\n  }"
+                }
+            }
+        }
+    ]
+}
