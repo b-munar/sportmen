@@ -22,5 +22,5 @@ func GetSport(c *fiber.Ctx) error {
 
 	db.Preload("Sport").First(&sport)
 
-	return c.Status(201).JSON(fiber.Map{"sportmen": sport.SportmenWithoutId})
+	return c.Status(200).JSON(fiber.Map{"sportmen": sport.SportmenWithoutId})
 }
