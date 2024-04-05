@@ -51,6 +51,8 @@ Crea un deportista con los datos brindados, el id del usuario debe ser único. E
   "age": 26,
   "weight": 63,
   "height": 163,
+  "identification_type":"CC",
+  "identification":"314159",
   "country_birth": "Colombia",
   "city_birth": "Cali",
   "country_residence": "Colombia",
@@ -84,13 +86,15 @@ Crea un deportista con los datos brindados, el id del usuario debe ser único. E
     "age": 26,
     "weight": 63,
     "height": 163,
+    "identification_type": "CC",
+    "identification": "314159",
     "country_birth": "Colombia",
     "city_birth": "Cali",
     "country_residence": "Colombia",
     "city_residence": "Elvira",
     "length_residence": 26,
-    "created_at": "2024-03-31T23:02:00.472427091Z",
-    "updated_at": "2024-03-31T23:02:00.472427091Z",
+    "created_at": "2024-04-05T20:08:43.807690403Z",
+    "updated_at": "2024-04-05T20:08:43.807690403Z",
     "sports": [
       {
         "sport": "basketball"
@@ -156,13 +160,15 @@ N/A
     "age": 26,
     "weight": 63,
     "height": 163,
+    "identification_type": "CC",
+    "identification": "314159",
     "country_birth": "Colombia",
     "city_birth": "Cali",
     "country_residence": "Colombia",
     "city_residence": "Elvira",
     "length_residence": 26,
-    "created_at": "2024-03-31T23:02:00.472427Z",
-    "updated_at": "2024-03-31T23:02:00.472427Z",
+    "created_at": "2024-04-05T20:08:43.80769Z",
+    "updated_at": "2024-04-05T20:08:43.80769Z",
     "sports": [
       {
         "sport": "basketball"
