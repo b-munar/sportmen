@@ -1,0 +1,79 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sportmen
+  labels:
+    app: sportmen
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: sportmen
+  template:
+    metadata:
+      labels:
+        app: sportmen
+    spec:
+      containers:
+        - name: sportmen
+          image: my-app-image
+          resources:
+            limits:
+              memory: "50Mi"
+              cpu: "0.15"
+            requests:
+              memory: "50Mi"
+              cpu: "0.15"
+          ports:
+            - containerPort: 80
+          imagePullPolicy: Always
+
+          env:
+            - name: "AUTH_HOST"
+              valueFrom:
+                secretKeyRef:
+                  name: appsecrets 
+                  key: AUTH_HOST
+            - name: "AUTH_PATH_AUTH"
+              valueFrom:
+                secretKeyRef:
+                  name: appsecrets 
+                  key: AUTH_PATH_AUTH
+            - name: "SPORTMEN_DB_USER"
+              valueFrom:
+                secretKeyRef:
+                  name: appsecrets 
+                  key: SPORTMEN_DB_USER
+            - name: "SPORTMEN_DB_HOST"
+              valueFrom:
+                secretKeyRef:
+                  name: appsecrets 
+                  key: SPORTMEN_DB_HOST
+            - name: "SPORTMEN_DB_NAME"
+              valueFrom:
+                secretKeyRef:
+                  name: appsecrets 
+                  key: SPORTMEN_DB_NAME
+            - name: "SPORTMEN_DB_PASSWORD"
+              valueFrom:
+                secretKeyRef:
+                  name: appsecrets 
+                  key: SPORTMEN_DB_PASSWORD
+            - name: "SPORTMEN_DB_PORT"
+              valueFrom:
+                secretKeyRef:
+                  name: appsecrets 
+                  key: SPORTMEN_DB_PORT
+
+---
+
+apiVersion: cloud.google.com/v1
+kind: BackendConfig
+metadata:
+  name: sportmen-config
+spec:
+  healthCheck:
+    checkIntervalSec: 30
+    port: 80
+    type: HTTP
+    requestPath: /sportmen/ping
