@@ -4,7 +4,6 @@ import (
 	"sportmen/database"
 	"sportmen/handlers"
 	"sportmen/middleware"
-	"sportmen/model"
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/cors"
@@ -12,11 +11,7 @@ import (
 )
 
 func main() {
-	database.ConnectDB()
-
-	db := database.DB
-
-	db.AutoMigrate(&model.Sportmen{}, &model.SportmenSport{})
+	database.Migrate()
 
 	app := fiber.New()
 
@@ -38,6 +33,6 @@ func main() {
 	app.Use(middleware.New(middleware.Config{}))
 
 	app.Get("/sportmen", handlers.GetSport)
-
 	app.Listen(":80")
+
 }

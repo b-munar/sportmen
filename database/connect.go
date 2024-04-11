@@ -11,7 +11,7 @@ import (
 func ConnectDB() {
 	var err error
 
-	viper.SetConfigFile(".env")
+	viper.SetConfigFile("/usr/src/app/.env")
 
 	viper.ReadInConfig()
 

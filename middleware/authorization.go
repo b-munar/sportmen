@@ -56,7 +56,7 @@ func configDefault(config ...Config) Config {
 				return nil, errors.New("error parsing token")
 			}
 
-			viper.SetConfigFile(".env")
+			viper.SetConfigFile("/usr/src/app/.env")
 
 			viper.ReadInConfig()
 
