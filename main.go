@@ -29,9 +29,7 @@ func main() {
 
 	app.Use(logger.New())
 
-	app.Get("/sportmen/ping", func(c *fiber.Ctx) error {
-		return c.Status(200).SendString("ping")
-	})
+	app.Get("/sportmen/ping", handlers.Ping)
 
 	app.Post("/sportmen", handlers.CreateSportmen)
 
