@@ -12,7 +12,7 @@ import (
 )
 
 // go test -run -v Test_Handler
-func TestCreateSportmen(t *testing.T) {
+func TestSportmen(t *testing.T) {
 
 	database.Migrate()
 
@@ -48,4 +48,22 @@ func TestCreateSportmen(t *testing.T) {
 
 	utils.AssertEqual(t, nil, err, "app.Test 1")
 	utils.AssertEqual(t, 201, resp.StatusCode, "Status code")
+
+	app.Delete("/sportmen", DeleteSportmen)
+
+	contents_delete := []byte(`
+		{
+		"user": "29a3ad78-6d3c-46e3-9c42-857ca3ec5220"
+		}
+	`)
+
+	req_delete := httptest.NewRequest("DELETE", "/sportmen", bytes.NewReader(contents_delete))
+
+	req_delete.Header.Set("Content-Type", "application/json")
+
+	resp_delete, err_delete := app.Test(req_delete)
+
+	utils.AssertEqual(t, nil, err_delete, "app.Test 2")
+	utils.AssertEqual(t, 201, resp_delete.StatusCode, "Status code")
+
 }
