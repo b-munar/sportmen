@@ -22,7 +22,7 @@ type SportmenWithoutId struct {
 	LengthResidence    int             `json:"length_residence" validate:"required"`
 	CreatedAt          time.Time       `json:"created_at"`
 	UpdatedAt          time.Time       `json:"updated_at"`
-	Sport              []SportmenSport `gorm:"foreignKey:UserId" json:"sports" validate:"dive"`
+	Sport              []SportmenSport `gorm:"foreignKey:UserId" json:"sports"`
 }
 
 type Sportmen struct {
@@ -37,5 +37,5 @@ type SportmenDelete struct {
 type SportmenSport struct {
 	ID     uint      `gorm:"primaryKey;"  json:"-"`
 	UserId uuid.UUID `gorm:"type:uuid;" json:"-"`
-	Sport  string    `json:"sport" validate:"oneof=basketball cycling"`
+	Sport  string    `json:"sport"`
 }
