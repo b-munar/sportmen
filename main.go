@@ -32,6 +32,8 @@ func main() {
 
 	app.Use(middleware.New(middleware.Config{}))
 
+	app.Post("/sportmen/info", handlers.GetSportId)
+
 	app.Get("/sportmen", handlers.GetSport)
 	app.Listen(":80")
 

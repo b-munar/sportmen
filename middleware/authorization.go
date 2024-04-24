@@ -14,7 +14,8 @@ import (
 )
 
 type DeserializeUser struct {
-	ID uuid.UUID `json:"id"`
+	ID   uuid.UUID `json:"id"`
+	Role int32     `json:"role"`
 }
 
 type Config struct {
