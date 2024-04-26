@@ -34,6 +34,8 @@ func main() {
 
 	app.Post("/sportmen/info", handlers.GetSportId)
 
+	app.Get("/sportmen/list", handlers.GetAllSport)
+
 	app.Get("/sportmen", handlers.GetSport)
 	app.Listen(":80")
 
