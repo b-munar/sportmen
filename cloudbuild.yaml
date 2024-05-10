@@ -1,8 +1,8 @@
 steps:
   - name: 'gcr.io/cloud-builders/docker'
-    args: [ 'build', '-t', 'us-east1-docker.pkg.dev/$PROJECT_ID/repo-sub/sportmen', '.' ]
+    args: [ 'build', '-t', 'us-east1-docker.pkg.dev/$PROJECT_ID/repo/sportmen', '.' ]
   - name: 'gcr.io/cloud-builders/docker'
-    args: [ 'push', 'us-east1-docker.pkg.dev/$PROJECT_ID/repo-sub/sportmen']
+    args: [ 'push', 'us-east1-docker.pkg.dev/$PROJECT_ID/repo/sportmen']
 
 options:
   logging: CLOUD_LOGGING_ONLY
